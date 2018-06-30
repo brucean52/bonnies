@@ -8,7 +8,13 @@ router.get("/", function(req, res) {
   res.render("index");
 });
 
-router.get("/1", function(req, res) {
-  res.render("index1");
+router.get("/register", function(req, res) {
+  res.render("register");
+});
+router.post("/register", function(req, res)
+{
+  username: req.body.username,
+    password: req.body.password
+  }).then(user => res.json(user));
 });
 module.exports = router;
