@@ -2,7 +2,7 @@
 <% include partials/_header.ejs %>
 
 
-<center>
+<center class="container">
 <font face ="Arial" size="8" color="DarkGreen">Bonnie's Vegan Cuisine</font>
 
 
@@ -16,8 +16,8 @@
 		<h5 class="menu-item card-title">$6.25</h5>
 		</div>
         <p class="card-text">Vegan drumsticks drizzled in BBQ Sauce</p>
-		<img src="/images/drumstick.jpg" width="300" height="198">
-        <a href="#" class="btn btn-primary">Add to Cart</a>
+		<img class="col-sm-10" src="/images/drumstick.jpg" width="300" height="225">
+        <a class="btn btn-success cart" data-food="drumsticks">Add to Cart</a>
 	  </div>
     </div>
   </div>
@@ -30,8 +30,8 @@
 		</div>
 	
         <p class="card-text">Fresh never frozen golden fries</p>
-        <img src="/images/fries.jpg" width="300" height="198">
-		<a href="#" class="btn btn-primary">Add to Cart</a>
+        <img class="col-sm-10" src="/images/fries.jpg" width="300" height="225">
+		<a class="btn btn-success cart" data-food="fries">Add to Cart</a>
       </div>
     </div>
   </div>
@@ -47,9 +47,9 @@
 		<h5 class="menu-item card-title">Chick-un Nuggets</h5>
 		<h5 class="menu-item card-title">$5.95</h>
 		</div>
-        <p class="menu-item card-text">Crispy chick-un nuggets served with a sweet chili dipping sauce</p>
-		<img src="/images/nuggets.jpg" width="400" height="250">
-		<a href="#" class="btn btn-primary">Add to Cart</a>
+      <p class="menu-item card-text">Crispy chick-un nuggets served with a sweet chili dipping sauce</p>
+		<img class="col-sm-10" src="/images/nuggets.jpg" width="400" height="250">
+		<a class="btn btn-success cart" data-food="nuggets">Add to Cart</a>
       </div>
     </div>
   </div>
@@ -61,20 +61,15 @@
 		<h5 class="menu-item card-title">$6.95</h5>
 		</div>
         <p class="card-text">Battered and Fried Cauliflower covered with buffalo sauce and served w/ ranch</p>
-        <img src="/images/cauliflower.jpg" width="260 height="198">
+        <img class="col-sm-10" src="/images/cauliflower.jpg" width="260" height="225">
 
-		<a href="#" class="btn btn-primary">Add to Cart</a>
+		<a class="btn btn-success cart" data-food="wings">Add to Cart</a>
       </div>
     </div>
   </div>
 </div>
-
-
-
-
-<hr>
-<h2><strong>Entrees</strong></h2>
-
+</br>
+    <h1 class="text-center  mt-3"><strong>Entrees</strong></h1>
 
  <div class="row">
   <div class="col-sm-6">
@@ -85,8 +80,8 @@
 		<h5 class="menu-item card-title">$10.45</h5>
 		</div>
         <p class="card-text">Chick-un with marinara sauce, melted vegan mozarella on a toasted french roll</p>
-       	<img src="/images/marinara.jpg" width="300" height="198">
-	    <a href="#" class="btn btn-primary">Add to Cart</a>
+       	<img class="col-sm-10" src="/images/marinara.jpg" width="300" height="198">
+	    <a class="btn btn-success cart" data-food="chick-melt">Add to Cart</a>
       </div>
     </div>
   </div>
@@ -98,12 +93,13 @@
 		<h5 class="menu-item card-title">$10.95</h5>
 		</div>
         <p class="card-text">Garlic pesto sauce w oven roasted artichoke hearts, baby spinach, mushrooms, vegan mozarella, and wild oregano</p>
-        <img src="/images/pesto.jpg" width="250" height="198">
-		<a href="#" class="btn btn-primary">Add to Cart</a>
+        <img class="col-sm-10" src="/images/pesto.jpg" width="250" height="198">
+		<a class="btn btn-success cart" data-food="spinach-pizza">Add to Cart</a>
       </div>
     </div>
   </div>
 </div>
+</br>
 <div class="row">
   <div class="col-sm-6">
     <div class="card">
@@ -113,8 +109,8 @@
 		<h5 class="menu-item card-title">$9.45</h5>
 		</div>
         <p class="card-text">Two corn tortillas topped w shredded jackfruit, cabbage, avocado, sriracha mayo, homemade sals fresca and cilantro</p>
-		<img src="/images/jackfruit.jpg" width="260" height="300">
-		<a href="#" class="btn btn-primary">Add to Cart</a>
+		<img class="col-sm-10" src="/images/jackfruit.jpg" width="200" height="200">
+		<a class="btn btn-success cart" data-food="tacos">Add to Cart</a>
       </div>
     </div>
   </div>
@@ -123,15 +119,16 @@
       <div class="card-body">
 		<div>
 		<h5 class="menu-item card-title">Southwestern Quinoa Salad</h5>
-		<h5 class="menu-item card-title">$FREE with a side of LUV</h5>
+		<h5 class="menu-item card-title">$10.95</h5>
 		</div>
         <p class="card-text">Quinoa, black beans, red bell peppers, sweet corn, onions, cilantro, and lemon juice. Served on a bed of massaged kale with an Italian vinagrette</p>
-        <img src="/images/quinoa.jpg" width="250" height="300">
-		<a href="#" class="btn btn-primary">Add to Cart</a>
+        <img class="col-sm-10" src="/images/quinoa.jpg" width="200" height="200">
+		<a class="btn btn-success cart" data-food="salad">Add to Cart</a>
       </div>
     </div>
   </div>
 </div>
+</br>
 <div class="row">
   <div class="col-sm-6">
     <div class="card">
@@ -141,18 +138,17 @@
 		<h5 class="menu-item card-title">$9.45</h5>
 		</div>
         <p class="card-text">Homemade patty served with house dressing, tomato, lettuce, onions, pickles, ketchup and mustard on a wheat bun</p>
-        <img src="/images/burger.jpg" width="250" height="300">
+        <img class="col-sm-10" src="/images/burger.jpg" width="200" height="250">
 
-		<a href="#" class="btn btn-primary">Add to Cart</a>
+		<a class="btn btn-success cart" data-food="burger">Add to Cart</a>
       </div>
     </div>
   </div>
 </div>
+</br>
 
-<div class="col-sm-12">
-<div>
-<h2><strong>Desserts</strong></h2>
-</div>
+<h1 class="text-center  mt-3"><strong>Desserts</strong></h1>
+
 
 <div class="row">
   <div class="col-sm-6">
@@ -163,9 +159,9 @@
 		<h5 class="menu-item card-title">$3.95</h5>
 		</div>
         <p class="card-text"></p>
-		<img src="/images/carrot.jpg" width="300" height="198">
+		<img class="col-sm-10" src="/images/carrot.jpg" width="300" height="225">
 
-        <a href="#" class="btn btn-primary">Add to Cart</a>
+        <a class="btn btn-success cart" data-food="carrot-cake">Add to Cart</a>
       </div>
     </div>
   </div>
@@ -177,12 +173,13 @@
 		<h5 class="menu-item card-title">$4.50</h5>
 		</div>
         <p class="card-text"></p>
-		<img src="/images/chocolate.jpg" width="250" height="260">
-        <a href="#" class="btn btn-primary">Add to Cart</a>
+		<img class="col-sm-10" src="/images/chocolate.jpg" width="250" height="260">
+        <a class="btn btn-success cart" data-food="chocolate-cake">Add to Cart</a>
       </div>
     </div>
   </div>
 </div>
+</br>
 <div class="row">
   <div class="col-sm-6">
     <div class="card">
@@ -192,8 +189,8 @@
 		<h5 class="menu-item card-title">$3.95</h5>
 		</div>
         <p class="card-text"></p>
-			<img src="/images/coconut.jpg" width="260" height="280">
-        <a href="#" class="btn btn-primary">Add to Cart</a>
+			<img class="col-sm-10" src="/images/coconut.jpg" width="260" height="280">
+        <a class="btn btn-success cart" data-food="coconut-cake">Add to Cart</a>
       </div>
     </div>
   </div>
@@ -204,13 +201,159 @@
 		<h5 class="menu-item card-title">Ice Cream</h5>
 		<h5 class="menu-item card-title">$2.95</h5>
 		</div>
-        <p class="card-text">Choice of chocolate, vanilla, strawberry, or flavor of the month</p>
-		<img src="/images/icecream.jpg" width="260" height="210">
-		<a href="#" class="btn btn-primary">Add to Cart</a>
+  
+    <img class="col-sm-10" src="/images/icecream.jpg" width="260" height="210">
+    <div class="input-group offset-md-2 mt-3">
+        <div class="input-group-prepend">
+            <label class="input-group-text" for="flavor">Flavor:</label>
+          </div>
+        <select class="form-control col-sm-6" id="flavor">
+          <option>Chocolate</option>
+          <option>Strawberry</option>
+          <option>Vanilla</option>
+          <option>Flavor of the Month </option>
+        </select>
+      </div>
+		<a class="btn btn-success add-ice-cream" data-food="icecream">Add to Cart</a>
       </div>
     </div>
   </div>
 </div>
-
+</br>
 </center>
+<script>
+  var cart = JSON.parse(localStorage.getItem("shoppingCart"));
+        if (cart === null) {
+            cart = [{
+              name: 'drumsticks',
+              type: 'appetizer',
+              price: '6.25',
+              qty: 0
+            },
+            {
+              name: 'fries',
+              type: 'appetizer',
+              price: '4.25',
+              qty: 0
+            },
+            {
+              name: 'nuggets',
+              type: 'appetizer',
+              price: '5.95',
+              qty: 0
+            },
+            {
+              name: 'wings',
+              type: 'appetizer',
+              price: '6.95',
+              qty: 0
+            },
+            {
+              name: 'chick-melt',
+              type: 'entree',
+              price: '10.45',
+              qty: 0
+            },
+            {
+              name: 'spinach-pizza',
+              type: 'entree',
+              price: '10.95',
+              qty: 0
+            },
+            {
+              name: 'burger',
+              type: 'entree',
+              price: '9.45',
+              qty: 0
+            },
+            {
+              name: 'tacos',
+              type: 'entree',
+              price: '9.45',
+              qty: 0
+            },
+            {
+              name: 'salad',
+              type: 'entree',
+              price: '10.95',
+              qty: 0
+            },
+            {
+              name: 'carrot-cake',
+              type: 'dessert',
+              price: '3.95',
+              qty: 0
+            },
+            {
+              name: 'chocolate-cake',
+              type: 'dessert',
+              price: '4.50',
+              qty: 0
+            },
+            {
+              name: 'coconut-cake',
+              type: 'dessert',
+              price: '3.95',
+              qty: 0
+            },
+            {
+              name: 'icecream',
+              type: 'dessert',
+              flavor: 'chocolate',
+              price: '2.95',
+              qty: 0
+            },
+            {
+              name: 'icecream',
+              type: 'dessert',
+              flavor: 'vanilla',
+              price: '2.95',
+              qty: 0
+            },
+            {
+              name: 'icecream',
+              type: 'dessert',
+              flavor: 'strawberry',
+              price: '2.95',
+              qty: 0
+            },
+            {
+              name: 'icecream',
+              type: 'dessert',
+              flavor: 'month',
+              price: '2.95',
+              qty: 0
+            },
+            ];
+        }
+
+        console.log('cart', cart);
+  $(".cart").click(function(event){
+      event.preventDefault();
+      var name = $(this).attr("data-food");
+
+      for(var i=0; i<cart.length; i++){
+        if(cart[i].name === name){
+          cart[i].qty++;
+        }
+      }
+      console.log('cart', cart);
+      localStorage.setItem("shoppingCart", JSON.stringify(cart));
+  });
+
+    $(".add-ice-cream").click(function(event){
+      event.preventDefault();
+      var name = $(this).attr("data-food");
+      var flavor = $('#flavor').val().toLowerCase();
+      for(var i=0; i<cart.length; i++){
+        if(cart[i].name === name && cart[i].flavor === flavor){
+          cart[i].qty++;
+        }
+      }
+      console.log('cart', cart);
+      localStorage.setItem("shoppingCart", JSON.stringify(cart));
+    });
+      // shoppingCart.addItemToCart(name, price, 1);
+      // di
+</script>
 <% include partials/footer %>

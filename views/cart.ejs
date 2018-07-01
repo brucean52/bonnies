@@ -1,6 +1,40 @@
-<% include partials/header %>
-<% include partials/_header.ejs %>
+<center><h2>Shopping Cart</h2></center>
+<center><p>Review your order!</p></center>
 
+<div class="container">
+<div class="row">
+    <div class="col-sm">
+      <center><h4>Cart <span class="price" style="color:black"></h4></center>
+    </div>
+    <div class="col-sm">
+      <center><b>Quantity</b></center>
+    </div>
+    <div class="col-sm">
+      <center><b>Price</b></center>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm">
+      <center><p>Product 1</p></center>
+    </div>
+    <div class="col-sm">
+      <center><input type="number"></input></center>
+    </div>
+	<div class="col-sm">
+      <center>$2</center>
+    </div>
+	</div>
+	<div class="row">
+	<div class="col-sm">
+      <center><p>Product 2</p></center>
+    </div>
+    <div class="col-sm">
+      <center><input type="number"></input></center>
+    </div>
+    <div class="col-sm">
+      <center>$4</center>
+    </div>
+	</div>
 
 <h2>Elon Musk Cart</h2>
 <p>Review your order!</p>
@@ -8,14 +42,37 @@
 <div class="col-25">
     <div class="container">
       <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>4</b></span></h4>
-      <p><a href="#">Product 1</a> <span class="price">$15</span></p>
+      <div><a href="#">Product 1</a> <form><input type="number"></input></form> <span class="price">$15</span></div>
       <p><a href="#">Product 2</a> <span class="price">$5</span></p>
       <p><a href="#">Product 3</a> <span class="price">$8</span></p>
       <p><a href="#">Product 4</a> <span class="price">$2</span></p>
       <hr>
       <p>Total <span class="price" style="color:black"><b>$30</b></span></p>
+
+	<div class="row">
+    <div class="col-sm">
+      <center><p>Product 3</p></center>
+    </div>
+    <div class="col-sm">
+      <center><input type="number"></input></center>
+    </div>
+    <div class="col-sm">
+      <center>$8</center>
+    </div>
+	</div>
+
+	<hr>
+	<div class="row">
+    <div class="col-sm">
+      <center><p>Total</p></center>
+    </div>
+    <div class="col-sm">
+      <center>Number of Items: </center>
+    </div>
+    <div class="col-sm">
+      <center>$14</center>
+
     </div>
   </div>
+  
 </div>
-
-<% include partials/footer %>
