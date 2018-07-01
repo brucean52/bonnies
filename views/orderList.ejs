@@ -26,8 +26,8 @@ p {
 				 <td><button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><%= orderData[i].id %></button></td>
 				 <td><%= orderData[i].title %></td>
 				 <td><button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><%= orderData[i].price %></button></td>
-				 <td><button id="fullfill"+orderData[i].id>FulFill Order</button></td>
-				<td><button id="cancel"+orderData[i].id>Cancel Order</button></td>
+				 <td><button id=<%= orderData[i].id%>>FulFill Order</button></td>
+				<td><button id="c"+<%= orderData[i].id%>>Cancel Order</button></td>
 			   </tr>
 			<% } %>
 			<tr id="row1">
@@ -48,6 +48,8 @@ p {
 	$(function () {
   		$('[data-toggle="popover"]').popover()
 	})
+
+
 </script>
 
 <% include partials/footer %>
