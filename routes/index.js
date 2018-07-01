@@ -17,9 +17,9 @@ router.get("/register", (req, res) => {
   res.render("register");
 });
 
-router.get("/orderlist", (req, res) => {
-    res.render("orderList");
-});
+// router.get("/orderlist", (req, res) => {
+    
+// });
 
 router.get("/menu", (req, res) => {
   res.render("menu");
@@ -90,9 +90,9 @@ router.get("/logout", (req, res) => {
 });
 
 // GET all orders from the orders table 
-router.get("/orders", function(req, res) {
-  
-  var orderData = MongoClient.connect('mongodb://eeps30:av862549@ds125001.mlab.com:25001/bonnies_vegan_cuisine', (err, db) => {
+router.get("/orderList", function(req, res) {
+
+  MongoClient.connect('mongodb://eeps30:av862549@ds125001.mlab.com:25001/bonnies_vegan_cuisine', (err, db) => {
     if(err) {
         return console.log('Unable to connect to MongoDB server');
     }
@@ -101,14 +101,13 @@ router.get("/orders", function(req, res) {
     db.collection('menu_item').find().toArray().then((docs) => {
         console.log('Menu Items: ');
         console.log(JSON.stringify(docs, undefined, 2));
+        console.log('This is order data: ', docs);
+        res.render('orderList', {orderData: docs});
     }, (err) => {
         console.log('Unable to fetch menu items', err);
     })
-    
     // db.close();
   })
-
-  res.render('orderData: ', {orderData});
 
 })
 
