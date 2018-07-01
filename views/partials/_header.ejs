@@ -37,7 +37,6 @@
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                       <a class="dropdown-item" href="/orderList">Order List</a>
-                                      <a class="dropdown-item" href="/profile">Account Info</a>
                                       <a class="dropdown-item" href="/logout">Logout</a>
                                     </div>
                             </li>
@@ -49,6 +48,7 @@
                                      Account
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+
                                       <a class="dropdown-item" href="/orderHistory">Order History</a>
                                       <a class="dropdown-item" href="/profile">Account Info</a>
                                       <a class="dropdown-item" href="/logout">Logout</a>
@@ -59,7 +59,7 @@
           <div class="topmenu_item">
           <ul class="nav navbar-nav pull-right">
                 <li class="nav-item">
-                    <a class="nav-link" href="/cart" data-href="/delete.php?id=54" data-toggle="modal" data-target="#shopping-cart">Cart</a>
+                    <a class="nav-link" href="/cart">Cart</a>
                 </li>
           </ul>
         </div>
@@ -151,10 +151,20 @@
                         <div class="modal-header">
                             Confirm order?
                         </div>
+                        <div class="modal-body">
+                            <center><p>Your Email Address: </p></center>
+                            <% if(currentUser) { %>
+                            <input type="text" class="input_shopping_cart" value="<%= currentUser.email %>"></input>
+                            <%} else { %>
+                            <input type="text" class="input_shopping_cart" value=""></input>
+                            <%}%>
+                        </div>
                         <div class="modal-footer">
                             <a class="btn btn-outline-success btn-ok" onclick="javascript:window.parent.location.href='http://localhost:3000/confirmation'">Yes</a>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Not yet</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                         </div>
                     </div>
                 </div>
         </div>
+
+        
