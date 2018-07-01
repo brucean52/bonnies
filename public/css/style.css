@@ -1,11 +1,42 @@
-<style>
 .mycustombtn{
-  width: 1000;
+  width: 100%;
+  height: 10%;
 }
 .topmenu{
-    padding-top:100px;
+    padding-left:20%;
+    color: gray;
 }
+<<<<<<< HEAD
 .menu-item{
     display:inline-block;
 }
 </style>  
+=======
+.topmenu2{
+    color: gray;
+}
+.topmenu_item{
+    padding-left:1px;
+}
+.top_right_menu{
+    padding-left:500px;
+}
+.body_main_logo{
+    padding-top:5%;
+    padding-left:15%;
+}
+.footer{
+  height: 100px;
+  background-color: darkgreen;
+}
+
+.container{
+  min-height: 85vh;
+}
+
+.google-btn{
+  height: 50px;
+  width: 200px;
+}
+</style>  
+>>>>>>> 073913a20c63e3a4ea2f6aec5e6594f13c856ff2

@@ -1,52 +1,49 @@
-<div class="navbar navbar-default navbar-fixed-top topmenu_custom" role="navigation">
-    <div class="container">
-        <div class="navbar-collapse collapse">
-            <div class="navbar-header">
-                Logo    
-            </div>
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" 
-                     data-toggle="dropdown">Menu <span class="caret"></span></a>
-                  <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li class="dropdown-header">Nav header</li>
-                    <li><a href="#">Separated link</a></li>
-                    <li><a href="#">One more separated link</a></li>
-                  </ul>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav pull-right">
-                    <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Log In <span class="caret"></span></a>
-                            <ul class="dropdown-menu dropdown-lr animated slideInRight" role="menu">
-                                <div class="col-lg-12 mycustombtn">
-                                    <div class="text-center"><h3><b>Log In</b></h3></div>
-                                    <form id="ajax-login-form" action="http://phpoll.com/login/process" method="post" role="form" autocomplete="off">
-                                        <img src="https://support.shopgate.com/hc/en-us/article_attachments/207878347/log_in_with_facebook_button.png"/>
-                                        </br>
-                                        
-    
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <div class="col-lg-12">
-                                                    <div class="text-center">
-                                                            <img src="https://ucollect.biz/wp-content/uploads/2015/03/Red-signin_Long_base_44dp.png" width="80%"/>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <input type="hidden" class="hide" name="token" id="token" value="a465a2791ae0bae853cf4bf485dbe1b6">
-                                    </form>
-                                </div>
-                            </ul>
-                        </li>
-                <li><a href="#">Cart</a></li>
-            </ul>
-        </div><!--/.navbar-collapse -->
-    </div> 
-</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light topmenu">
+    <a class="navbar-brand" href="/">Vegan</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/menu">Menu</a>
+              </li>
+      </ul>
+
+      <ul class="nav navbar-nav pull-right top_right_menu ">
+            <% if(currentUser){ %>
+                <li class="nav-item dropdown">
+                        <a href="#" class="dropdown-toggle topmenu2" data-toggle="dropdown">Account <span class="caret"></span></a>
+                        <ul class="dropdown-menu dropdown-lr animated slideInRight topmenu_item" role="menu">
+                            <li>Order History</li>
+                            <li>Settings</li>
+                            <li><a href="/logout">Logout</a></li>
+                        </ul>
+                    </li> 
+              </ul> 
+            <% } else{ %> 
+                <li class="nav-item dropdown">
+                <a href="#" class="dropdown-toggle topmenu2" data-toggle="dropdown">Log In <span class="caret"></span></a>
+                <ul class="dropdown-menu dropdown-lr animated slideInRight topmenu_item" role="menu">
+                    
+                        <div class="col-lg-12 mycustombtn">
+                            <div class="text-center">
+                                <a href="/auth/google">
+                                <img class="google-btn"src="https://ucollect.biz/wp-content/uploads/2015/03/Red-signin_Long_base_44dp.png" width="80%"/>
+                                </a>
+                            </div>
+                        </div> 
+                       
+                </ul>
+            </li> 
+      </ul>
+            <% } %>
+      <div class="topmenu_item">
+      <ul class="nav navbar-nav pull-right">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Cart</a>
+            </li>
+      </ul>
+    </div>
+    </div>
+  </nav>

@@ -4,7 +4,7 @@ const express = require('express');
 const router = express.Router({
     mergeParams: true
 });
-
+const Admin = require('../models/admin');
 const passport = require('passport');
 //const User = require('../models/user');
 
@@ -13,22 +13,59 @@ router.get("/", (req, res) => {
   res.render("index");
 });
 
-router.get("/register", (req, res) => {
-  res.render("register");
-});
+// router.get("/register", (req, res) => {
+//   res.render("register");
+// });
+
+// router.get("/orderlist", (req, res) => {
+    
+// });
 
 router.get("/menu", (req, res) => {
   res.render("menu");
 });
 
+
 router.get("/cart", (req, res) => {
     res.render("cart");
 });
 
+
+//admin routes
+
 router.post("/register", (req, res) => {
-  let user = new User();
-  console.log(req.body.first_name);
+  let admin = new Admin();
+  admin.first_name = req.body.first_name;
+  admin.first_name = req.body.last_name;
+  admin.email = req.body.email;
+
+  if(req.body.password === req.body.password2){
+    admin.password = req.body.password;
+  }
+
+  Admin.register(admin, req.body.password, function(err, user){
+    if(err){
+         console.log(err);
+         return;
+     } //user stragety
+     passport.authenticate("local")(req, res, function(){
+       //render admin view
+        res.render('index', {
+          first_name: admin.first_name,
+          last_name: admin.last_name,
+          email: admin.email
+        });
+    }); 
+ });
 });
+
+//admin login
+router.get("/admin", (req, res) => {
+  res.render("admin");
+});
+
+router.post('/login', passport.authenticate('local', { successRedirect: '/',
+failureRedirect: '/login'}));
 
 //authentication routes
 router.get('/auth/google',
@@ -60,9 +97,9 @@ router.get("/logout", (req, res) => {
 });
 
 // GET all orders from the orders table 
-router.get("/orders", function(req, res) {
-  
-  var orderData = MongoClient.connect('mongodb://eeps30:av862549@ds125001.mlab.com:25001/bonnies_vegan_cuisine', (err, db) => {
+router.get("/orderList", function(req, res) {
+
+  MongoClient.connect('mongodb://eeps30:av862549@ds125001.mlab.com:25001/bonnies_vegan_cuisine', (err, db) => {
     if(err) {
         return console.log('Unable to connect to MongoDB server');
     }
@@ -71,14 +108,13 @@ router.get("/orders", function(req, res) {
     db.collection('menu_item').find().toArray().then((docs) => {
         console.log('Menu Items: ');
         console.log(JSON.stringify(docs, undefined, 2));
+        console.log('This is order data: ', docs);
+        res.render('orderList', {orderData: docs});
     }, (err) => {
         console.log('Unable to fetch menu items', err);
     })
-    
     // db.close();
   })
-
-  res.render('orderData: ', {orderData});
 
 })
 
