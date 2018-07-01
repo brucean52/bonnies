@@ -31,8 +31,8 @@ router.get("/menu", (req, res) => {
 
 
 router.get("/cart", (req, res) => {
-  let cart = global.cart;
-    console.log('cart', cart);
+  // let cart = global.cart;
+  //   console.log('cart', cart);
     res.render("cart");
 });
 
@@ -129,16 +129,27 @@ router.post('/additem', (req, res)=> {
   console.log(req.body.food);
   let itemObject = {
     name : req.body.food,
-    price: req.body.price
+    price: req.body.price,
+    qty: 1
   }
   let cartArray = [];
+  let found = false;
 
   if(!global.cart){
     cartArray.push(itemObject);
     global.cart = cartArray;
   } else {
     cartArray = global.cart;
-    cartArray.push(itemObject);
+
+    for(var i =0; i<cartArray.length; i++){
+      if(cartArray[i].name == itemObject.name){
+        cartArray[i].qty++;
+        found = true;
+      }
+    }
+    if(!found){
+      cartArray.push(itemObject);
+    }
     global.cart = cartArray;  
   }
 
