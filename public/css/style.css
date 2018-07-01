@@ -1,4 +1,4 @@
-.mycustombtn{
+ .mycustombtn{
   width: 100%;
   height: 10%;
 }
@@ -6,12 +6,10 @@
     padding-left:20%;
     color: gray;
 }
-<<<<<<< HEAD
 .menu-item{
     display:inline-block;
 }
-</style>  
-=======
+
 .topmenu2{
     color: gray;
 }
@@ -38,5 +36,3 @@
   height: 50px;
   width: 200px;
 }
-</style>  
->>>>>>> 073913a20c63e3a4ea2f6aec5e6594f13c856ff2

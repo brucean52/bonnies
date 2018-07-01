@@ -9,7 +9,7 @@ const keys = require('./config/keys');
 const cookieSession = require('cookie-session');
 
 const User = require('./models/user');
-const Admin = require('./models/admin');
+
 require('./services/passport');
 
 // Init
@@ -46,7 +46,7 @@ db.on('error', (err) => {
 console.log("MongoDB Connection: " + err);
 });
 
-passport.use(Admin.createStrategy());
+passport.use(User.createStrategy());
 app.use(passport.initialize());
 app.use(passport.session());
 // Routes
@@ -55,7 +55,7 @@ var index = require('./routes/index');
 
 app.use(function(req, res, next) {
         res.locals.currentUser = req.user;
-        console.log(req.user);
+        console.log(res.locals.currentUser);
     next();
 });
 
