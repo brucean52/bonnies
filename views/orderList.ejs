@@ -14,6 +14,9 @@ p {
 		<p class="text-center">Order List</p>
 	</div>
 	<div>
+			<% 
+			if(cart){
+			for(var i=0; i < orderData.length; i++) { %>
 		<table id="table" style="width:100%">
 
 			<tr>
@@ -24,7 +27,7 @@ p {
 				<th>FulFill</th>
 				<th>Cancel</th>
 			</tr>
-			<% for(var i=0; i < orderData.length; i++) { %>
+
 			   <tr>
 					<td><button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><%= orderData[i].id %></button></td>
 					<td><%= orderData[i].title %></td>
@@ -33,8 +36,10 @@ p {
 					<td><form action="/fulfillItem" method="post"><input name="id" type="hidden" value=<%= orderData[i].id%>><button type="submit" class="fulfillOrderButton" value=<%= orderData[i].id%>>FulFill Order</button></form></td>
 					<td><form action="/cancelItem" method="post" key=<%= orderData[i].id%>><input name="id" type="hidden" value=<%= orderData[i].id%>><button type="submit" class="cancelOrderButton" value=<%= orderData[i].id%>>Cancel Order</button></form></td>
 			   </tr>
+
 			<% } %>
 		</table>
+		<% }} %>
 	</div>
 </div>
 

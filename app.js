@@ -56,13 +56,6 @@ var index = require('./routes/index');
 app.use(function(req, res, next) {
         res.locals.currentUser = req.user;
         console.log(res.locals.currentUser);
-        // if(!res.locals.cart){
-        //     res.locals.cart = {
-
-        //     };
-        // }
-
-        // console.log('cart', res.locals.cart);
     next();
 });
 
