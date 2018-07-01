@@ -1,0 +1,40 @@
+﻿<% include partials/header %>
+<style>
+p {
+	color: green;
+	font-family: verdana;
+	font-size: 300%
+	}
+</style>
+
+<div class="container">
+	<div>
+		<p class="text-center">Order List</p>
+	</div>
+	<div>
+		<table id="table" style="width:100%">
+			<tr>
+				<th>Order#</th>
+				<th>Time Ordered</th> 
+				<th>UserInfo</th>
+				<th>FulFill</th>
+				<th>Cancel</th>
+			</tr>
+			<tr>
+				<td><a tabindex="0" class="btn btn-lg btn-danger" role="button" data-toggle="popover" data-trigger="focus" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?">Dismissible popover</a></td>
+				<td>9:30pm</td> 
+				<td>bob</td>
+			<td><button>FulFill Order</button></td>
+			<td><button>Cancel Order</button></td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+​<script>
+	$(function () {
+  	$('[data-toggle="popover"]').popover()
+	})
+</script>
+
+<% include partials/footer %>

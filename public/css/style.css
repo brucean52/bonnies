@@ -18,3 +18,12 @@
     padding-top:5%;
     padding-left:15%;
 }
+.footer{
+  min-height: 100px;
+  background-color: darkgreen;
+}
+
+.container{
+  min-height: 85vh;
+}
+</style>  

@@ -13,12 +13,12 @@ router.get("/", (req, res) => {
   res.render("index");
 });
 
-router.get("/register", (req, res) => {
-  res.render("register");
-});
+// router.get("/register", (req, res) => {
+//   res.render("register");
+// });
 
 router.get("/orderlist", (req, res) => {
-    res.render("ManagerUI");
+    res.render("orderList");
 });
 
 router.get("/menu", (req, res) => {
@@ -53,8 +53,8 @@ router.post("/register", (req, res) => {
 });
 
 //admin login
-router.get("/login", (req, res) => {
-  res.render("login");
+router.get("/admin", (req, res) => {
+  res.render("admin");
 });
 
 router.post('/login', passport.authenticate('local', { successRedirect: '/',
