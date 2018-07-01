@@ -26,4 +26,13 @@
 .container{
   min-height: 85vh;
 }
-</style>  
+.nav_tab_custom{
+    padding-top:15px;
+    padding-left:20%;
+}
+.td_active:hover {
+    cursor: pointer;
+}
+.modal_table_custom{
+    width:800px;
+}

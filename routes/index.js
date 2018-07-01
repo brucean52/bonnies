@@ -21,6 +21,10 @@ router.get("/orderlist", (req, res) => {
     res.render("orderList");
 });
 
+router.get("/order_history", (req, res) => {
+    res.render("order_history");
+});
+
 router.get("/menu", (req, res) => {
   res.render("menu");
 });
