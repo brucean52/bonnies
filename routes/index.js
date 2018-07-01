@@ -107,9 +107,9 @@ router.get("/orderList", function(req, res) {
     console.log('Connected to MongoDB server.');
 
     db.collection('menu_item').find().toArray().then((docs) => {
-        console.log('Menu Items: ');
-        console.log(JSON.stringify(docs, undefined, 2));
-        console.log('This is order data: ', docs);
+        // console.log('Menu Items: ');
+        // console.log(JSON.stringify(docs, undefined, 2));
+        // console.log('This is order data: ', docs);
         res.render('orderList', {orderData: docs});
     }, (err) => {
         console.log('Unable to fetch menu items', err);
