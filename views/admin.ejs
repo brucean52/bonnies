@@ -6,57 +6,64 @@
     <div class="container">
         <div class="row">
 
-        
-        <div class="col-sm-6 col-sm-offset-3">
+                <% if(!currentUser){ %>
+                    <div class="col-sm-6 col-sm-offset-3">
             
-                <h1><span class="fa fa-sign-in"></span>Login</h1>
-    
-                <!-- LOGIN FORM -->
-                <form action="/login" method="post">
-                    <div class="form-group">
-                        <label>Email*</label>
-                        <input type="text" class="form-control" name="email">
+                            <h1><span class="fa fa-sign-in"></span>Login</h1>
+                
+                            <!-- LOGIN FORM -->
+                            <form action="/login" method="post">
+                                <div class="form-group">
+                                    <label>Email*</label>
+                                    <input type="text" class="form-control" name="email">
+                                </div>
+                                <div class="form-group">
+                                    <label>Password*</label>
+                                    <input type="password" class="form-control" name="password">
+                                </div>
+                                <button type="submit" class="btn btn-warning btn-lg">Log In</button>
+                            </form>
+                            <hr>
+            </div>
+            <div class="col-sm-6">
+                        <h1><span class="fa fa-sign-in"></span>Sign Up</h1>
+                    
+                        <!-- Register FORM -->
+                        <form action="/register" method="post">
+                            <div class="form-group">
+                                <label>First Name*</label>
+                                <input type="text" class="form-control" name="first_name">
+                            </div>
+                            <div class="form-group">
+                                <label>Last Name*</label>
+                                <input type="text" class="form-control" name="last_name">
+                            </div>
+                            <div class="form-group">
+                                <label>Email*</label>
+                                <input type="text" class="form-control" name="email">
+                            </div>
+                            <div class="form-group">
+                                <label>Password*</label>
+                                <input type="password" class="form-control" name="password">
+                            </div>
+                            <div class="form-group">
+                                <label>Confirm Password*</label>
+                                <input type="password" class="form-control" name="password2">
+                            </div>
+                            <button type="submit" class="btn btn-warning btn-lg">Signup</button>
+                        </form>
                     </div>
-                    <div class="form-group">
-                        <label>Password*</label>
-                        <input type="password" class="form-control" name="password">
-                    </div>
-                    <button type="submit" class="btn btn-warning btn-lg">Log In</button>
-                </form>
-                <hr>
-</div>
-<div class="col-sm-6">
-            <h1><span class="fa fa-sign-in"></span>Sign Up</h1>
-        
-            <!-- Register FORM -->
-            <form action="/register" method="post">
-                <div class="form-group">
-                    <label>First Name*</label>
-                    <input type="text" class="form-control" name="first_name">
                 </div>
-                <div class="form-group">
-                    <label>Last Name*</label>
-                    <input type="text" class="form-control" name="last_name">
+                        <p>Or go <a href="/">home</a>.</p>
                 </div>
-                <div class="form-group">
-                    <label>Email*</label>
-                    <input type="text" class="form-control" name="email">
-                </div>
-                <div class="form-group">
-                    <label>Password*</label>
-                    <input type="password" class="form-control" name="password">
-                </div>
-                <div class="form-group">
-                    <label>Confirm Password*</label>
-                    <input type="password" class="form-control" name="password2">
-                </div>
-                <button type="submit" class="btn btn-warning btn-lg">Signup</button>
-            </form>
-        </div>
-    </div>
-            <p>Or go <a href="/">home</a>.</p>
-    </div>
-    </div>
+                  <% } else if(currentUser.admin){ %>
+                    <h1>You are logged in as an admin</h1>
+                  
+                <% } else if(currentUser){ %> 
+
+                    <h1>You are logged in as a customer</h1>
+                <% } %>
+            </div>
     <!-- Body Ended-->
     <!-- Footer -->
     <!-- Footer Ended-->
