@@ -5,4 +5,12 @@
 .topmenu{
     padding-top:100px;
 }
+.footer{
+  min-height: 100px;
+  background-color: darkgreen;
+}
+
+.container{
+  min-height: 85vh;
+}
 </style>  
