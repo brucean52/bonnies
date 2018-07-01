@@ -1,8 +1,20 @@
-<style>
 .mycustombtn{
   width: 1000;
 }
 .topmenu{
-    padding-top:100px;
+    padding-left:20%;
+    color: gray;
 }
-</style>  
+.topmenu2{
+    color: gray;
+}
+.topmenu_item{
+    padding-left:1px;
+}
+.top_right_menu{
+    padding-left:500px;
+}
+.body_main_logo{
+    padding-top:5%;
+    padding-left:15%;
+}
