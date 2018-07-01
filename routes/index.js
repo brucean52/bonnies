@@ -5,6 +5,7 @@ const router = express.Router({
     mergeParams: true
 });
 const User = require('../models/user');
+const Order = require('../models/order');
 const passport = require('passport');
 //const User = require('../models/user');
 
@@ -104,20 +105,34 @@ router.get("/logout", (req, res) => {
 //routes for updating fulfilled status of order items
 router.post('/fulfillItem', (req, res) => {
   console.log("FULFILLING ITEM: ", req.body.id);
-  MongoClient.connect('mongodb://eeps30:av862549@ds125001.mlab.com:25001/bonnies_vegan_cuisine', (err, db) => {
-    if(err) {
-        return console.log('Unable to connect to MongoDB server');
-    }
-    console.log('Connected to MongoDB server.');
+  var time = new Date();
 
-    db.collection('orders').findByIdAndUpdate(req.body.id, {fulfilled: true}, {new: true}).then((docs) => {
-        console.log("docs from event: ", docs)
-        res.render('orderList', {orderData: docs});
-    }, (err) => {
-        console.log('Unable to fetch order list items', err);
-    })
-    // db.close();
+  Order.update({id: req.body.id}, {
+      fulfilled: true,
+      timeFulfilled: time.toLocaleString('en-US', { hour: 'numeric', hour12: true })
+
+  }, function(err){
+      if(err){
+          console.log(err);
+      }
   })
+  res.redirect('/orderList')
+})
+
+//cancel order from order items on admin screen
+router.post('/cancelItem', (req, res) => {
+    console.log("CANCELING ITEM: ", req.body.id);
+  
+    Order.update({id: req.body.id}, {
+        fulfilled: true,
+        timeFulfilled: time.toLocaleString('en-US', { hour: 'numeric', hour12: true })
+  
+    }, function(err){
+        if(err){
+            console.log(err);
+        }
+    })
+    res.redirect('/orderList')
 })
 
 // get all orders from the orders table 

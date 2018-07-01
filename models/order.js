@@ -4,7 +4,8 @@ let orderSchema = mongoose.Schema({
     id: Number,
     itemsOrdered: {},
     timeOrdered: Number,
-    timeFulfilled: null
+    timeFulfilled: 0,
+    fulfilled: false
 });
 
 module.exports = mongoose.model('Order', orderSchema);
