@@ -49,6 +49,18 @@
   width: 200px;
 }
 
+a.btn.btn-success{
+  margin-top: 2%;
+  color: white;
+}
+.admin{
+  padding-top: 10%; 
+  font-size: 1.5rem;
+  color: white;
+}
+.card {
+ height: 425px; 
+}
 /* body {
   font-family: Arial;
   font-size: 17px;
