@@ -6,6 +6,7 @@ const router = express.Router({
 });
 const User = require('../models/user');
 const Order = require('../models/order');
+const UserOrder = require('../models/userOrder');
 const passport = require('passport');
 //const User = require('../models/user');
 
@@ -104,7 +105,7 @@ router.get("/logout", (req, res) => {
   res.redirect('/');
 });
 
-//routes for updating fulfilled status of order items
+//update fulfilled status of order items
 router.post('/fulfillItem', (req, res) => {
   console.log("FULFILLING ITEM: ", req.body.id);
   var time = new Date();
@@ -125,24 +126,23 @@ router.post('/fulfillItem', (req, res) => {
 router.post('/cancelItem', (req, res) => {
     console.log("CANCELING ITEM: ", req.body.id);
   
-    Order.update({id: req.body.id}, {
-        fulfilled: true,
-        timeFulfilled: time.toLocaleString('en-US', { hour: 'numeric', hour12: true })
-  
-    }, function(err){
-        if(err){
-            console.log(err);
+    UserOrder.remove({id: req.body.id}, function(err) {
+        if (!err) {
+                console.log('deletion went fine');
         }
-    })
-    res.redirect('/orderList')
+        else {
+                console.log(err);
+        }
+    });
+    res.redirect('/order_history')
 })
 
 // get all orders from the orders table onto admin orderList
 router.get("/orderList", function(req, res) {
-
+    console.log("ORDERLIST CLICKED")
   MongoClient.connect('mongodb://eeps30:av862549@ds125001.mlab.com:25001/bonnies_vegan_cuisine', (err, db) => {
     if(err) {
-        return console.log('Unable to connect to MongoDB server');
+        return console.log('Unable to connect to MongoDB server', err);
     }
     console.log('Connected to MongoDB server.');
 
@@ -187,18 +187,17 @@ router.post('/additem', (req, res)=> {
     global.cart = cartArray;  
   }
 
-
-
   console.log(global.cart);
   res.render('menu', {data: 'item added'});
 });
 
-//get all orders from userOrders onto user list
-router.get("/order_history", function(req, res) {
 
+//get all orders from userOrders onto order_history.ejs
+router.get("/orderHistory", function(req, res) {
+    console.log("ORDER HISTORY CLICKED")
     MongoClient.connect('mongodb://eeps30:av862549@ds125001.mlab.com:25001/bonnies_vegan_cuisine', (err, db) => {
       if(err) {
-          return console.log('Unable to connect to MongoDB server');
+          return console.log('Unable to connect to MongoDB server', err);
       }
       console.log('Connected to MongoDB server.');
   
@@ -206,7 +205,7 @@ router.get("/order_history", function(req, res) {
           // console.log('Menu Items: ');
           // console.log(JSON.stringify(docs, undefined, 2));
           // console.log('This is order data: ', docs);
-          res.render('order_history', {userOrders: docs});
+          res.render('order_history', {orderData: docs});
       }, (err) => {
           console.log('Unable to fetch order list items', err);
       })

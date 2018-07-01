@@ -86,30 +86,16 @@
                                 </tr>
                               </thead>
                               <tbody data-link="row" class="rowlink">
-                                <tr data-id="1">
-                                  <td data-toggle="modal" data-target="#myModal"><a>1</td>
-                                  <td data-toggle="modal" data-target="#myModal">Doe</td>
-                                  <td data-toggle="modal" data-target="#myModal">john@example.com</td>
-                                  <td data-toggle="modal" data-target="#myModal">Processing</td></a>
-                                  <td class="rowlink-skip">
-                                        <button class="btn btn-outline-danger" data-href="/delete.php?id=54" data-toggle="modal" data-target="#confirm-delete">
-                                            Cancel
-                                        </button>
-                                  </td>
-                                </tr>
-                                <tr data-id="2" data-toggle="modal" data-target="#myModal">
-                                  <td>2</td>
-                                  <td>Moe</td>
-                                  <td>mary@example.com</td>
-                                  <td>Processing</td>
-                                  <td class="rowlink-skip"><button type="button" class="btn btn-outline-danger">Cancel</button></td>
-                                </tr>
-                                <tr data-id="3" data-toggle="modal" data-target="#myModal">
-                                  <td>3</td>
-                                  <td>Dooley</td>
-                                  <td>july@example.com</td>
-                                  <td>Processing</td>
-                                  <td class="rowlink-skip"><button type="button" class="btn btn-btn btn-outline-danger">Cancel</button></td>
+                                <tr>
+                                    <% for(var i=0; i < orderData.length; i++) { %>
+                                        <tr>
+                                                <td><%= orderData[i].id %></td>
+                                                <td><%= orderData[i].timeFulfilled %></td>
+                                                <td><%= orderData[i].title %></td>
+                                                <td><%= orderData[i].timeOrdered %></td>
+                                                <td><form action="/cancelItem" method="post" key=<%= orderData[i].id%>><input name="id" type="hidden" value=<%= orderData[i].id%>><button type="submit" class="cancelOrderButton" value=<%= orderData[i].id%>>Cancel Order</button></form></td>
+                                        </tr>
+                                    <% } %>
                                 </tr>
                               </tbody>
                             </table>
