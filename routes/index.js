@@ -135,7 +135,7 @@ router.post('/cancelItem', (req, res) => {
     res.redirect('/orderList')
 })
 
-// get all orders from the orders table 
+// get all orders from the orders table onto admin orderList
 router.get("/orderList", function(req, res) {
 
   MongoClient.connect('mongodb://eeps30:av862549@ds125001.mlab.com:25001/bonnies_vegan_cuisine', (err, db) => {
@@ -155,6 +155,28 @@ router.get("/orderList", function(req, res) {
     // db.close();
   })
 
+})
+
+//get all orders from userOrders onto user list
+router.get("/order_history", function(req, res) {
+
+    MongoClient.connect('mongodb://eeps30:av862549@ds125001.mlab.com:25001/bonnies_vegan_cuisine', (err, db) => {
+      if(err) {
+          return console.log('Unable to connect to MongoDB server');
+      }
+      console.log('Connected to MongoDB server.');
+  
+      db.collection('userOrders').find().toArray().then((docs) => {
+          // console.log('Menu Items: ');
+          // console.log(JSON.stringify(docs, undefined, 2));
+          // console.log('This is order data: ', docs);
+          res.render('order_history', {userOrders: docs});
+      }, (err) => {
+          console.log('Unable to fetch order list items', err);
+      })
+      // db.close();
+    })
+  
 })
 
 router.post('./')
