@@ -29,7 +29,7 @@ passport.use(new GoogleStrategy({
         callbackURL: '/auth/google/callback'
         }, 
         async (accessToken, refreshToken, profile, done)=> {
-            console.log('profile', profile);
+            //  console.log('profile', profile);
             const existingUser = await User.findOne({ googleId: profile.id })
                 if (existingUser){
                     //existing user exists with profile id
