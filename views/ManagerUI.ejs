@@ -1,0 +1,44 @@
+﻿<% include partials/header %>
+<head>
+	<meta charset="utf-8">
+	<title>Manager UI</title>
+	
+</head>
+
+
+
+<style>
+p {
+	color: green;
+	font-family: verdana;
+	font-size: 300%
+	}
+</style>
+<p class="text-center">Order List</p>
+
+<table id="table" style="width:100%">
+  <tr>
+    <th>Order#</th>
+    <th>Time Ordered</th> 
+    <th>UserInfo</th>
+	<th>FulFill</th>
+	<th>Cancel</th>
+  </tr>
+  <tr>
+    <td><a href="#" data-toggle="popover" title="Popover Header" data-content="Some content inside the popover">
+  512
+</a></td>
+    <td>9:30pm</td> 
+    <td>bob</td>
+	<td><button>FulFill Order</button></td>
+	<td><button>Cancel Order</button></td>
+  </tr>
+</table>
+
+​<script>
+	$(document).ready(function(){
+		$('[data-toggle="popover"]').popover();   
+	});
+</script>
+
+<% include partials/footer %>
