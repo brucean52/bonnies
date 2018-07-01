@@ -32,7 +32,20 @@
   min-height: 85vh;
 }
 
+.nav_tab_custom{
+    padding-top:15px;
+    padding-left:20%;
+}
+.td_active:hover {
+    cursor: pointer;
+}
+.modal_table_custom{
+    width:800px;
+}
+
+
 .google-btn{
   height: 50px;
   width: 200px;
 }
+
