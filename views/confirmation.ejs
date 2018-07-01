@@ -1,14 +1,31 @@
-<!DOCTYPE html>
-
-<center><div class="container">
-  <h1>Thank you for your order!</h1>
-  <h4>Confirmation Number: ....</h4>
-  <h2>Items ordered:</h2>
+<% include partials/header %>
+<% include partials/_header.ejs %>
+<center><div class="container order_confirm_container">
+    <div class="text-xs-center">
+        <h1 class="display-3">Thank You!</h1>
+        <h4>Confirmation #: 10</h4>
+        <p class="lead"><strong>Please check your email</strong> for the order detail.</p>
+        <hr>
+        <center><img src="/images/dog.jpg" width="300" height="198"></center>
+        <p>
+      <table class="table table-sm order_confirm_table">
+        <thead>
+          <tr>
+            <th>Menu</th>
+            <th>Qty</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Menu1</td>
+            <td>1</td>
+          </tr>
+        </tbody>
+      </table>
+        <p class="lead">
+          <a class="btn btn-primary btn-sm order_confirm_button" href="/" role="button">Continue to homepage</a>
+        </p>
+      </div>
 </div></center>
 
-
-<center><img src="/images/dog.jpg" width="300" height="198"></center>
-
-<p>Or go <a href="/">home</a>.</p>
-</body>
-</html>
+<% include partials/footer.ejs %>
