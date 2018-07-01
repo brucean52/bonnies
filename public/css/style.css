@@ -1,4 +1,4 @@
-.mycustombtn{
+ .mycustombtn{
   width: 100%;
   height: 10%;
 }
@@ -6,12 +6,10 @@
     padding-left:20%;
     color: gray;
 }
-<<<<<<< HEAD
 .menu-item{
     display:inline-block;
 }
-</style>  
-=======
+
 .topmenu2{
     color: gray;
 }
@@ -34,9 +32,20 @@
   min-height: 85vh;
 }
 
+.nav_tab_custom{
+    padding-top:15px;
+    padding-left:20%;
+}
+.td_active:hover {
+    cursor: pointer;
+}
+.modal_table_custom{
+    width:800px;
+}
+
+
 .google-btn{
   height: 50px;
   width: 200px;
 }
-</style>  
->>>>>>> 073913a20c63e3a4ea2f6aec5e6594f13c856ff2
+

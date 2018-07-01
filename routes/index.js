@@ -4,7 +4,7 @@ const express = require('express');
 const router = express.Router({
     mergeParams: true
 });
-const Admin = require('../models/admin');
+const User = require('../models/user');
 const passport = require('passport');
 //const User = require('../models/user');
 
@@ -21,6 +21,10 @@ router.get("/", (req, res) => {
     
 // });
 
+router.get("/order_history", (req, res) => {
+    res.render("order_history");
+});
+
 router.get("/menu", (req, res) => {
   res.render("menu");
 });
@@ -34,27 +38,24 @@ router.get("/cart", (req, res) => {
 //admin routes
 
 router.post("/register", (req, res) => {
-  let admin = new Admin();
-  admin.first_name = req.body.first_name;
-  admin.first_name = req.body.last_name;
-  admin.email = req.body.email;
+  let user = new User();
+  user.name = req.body.first_name +" "+ req.body.last_name;
+  user.email = req.body.email;
 
   if(req.body.password === req.body.password2){
-    admin.password = req.body.password;
+    user.password = req.body.password;
   }
 
-  Admin.register(admin, req.body.password, function(err, user){
+  user.admin = true;
+
+  User.register(user, req.body.password, function(err, user){
     if(err){
          console.log(err);
          return;
      } //user stragety
      passport.authenticate("local")(req, res, function(){
        //render admin view
-        res.render('index', {
-          first_name: admin.first_name,
-          last_name: admin.last_name,
-          email: admin.email
-        });
+        res.render('index');
     }); 
  });
 });
