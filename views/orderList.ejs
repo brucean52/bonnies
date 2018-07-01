@@ -13,6 +13,7 @@ p {
 	</div>
 	<div>
 		<table id="table" style="width:100%">
+
 			<tr>
 				<th>Order#</th>
 				<th>Time Ordered</th> 
@@ -20,12 +21,24 @@ p {
 				<th>FulFill</th>
 				<th>Cancel</th>
 			</tr>
-			<tr>
-				<td><a tabindex="0" class="btn btn-lg btn-danger" role="button" data-toggle="popover" data-trigger="focus" title="Dismissible popover" data-content="And here's some amazing content. It's very engaging. Right?">Dismissible popover</a></td>
+			<% for(var i=0; i < orderData.length; i++) { %>
+			   <tr>
+				 <td><button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><%= orderData[i].id %></button></td>
+				 <td><%= orderData[i].title %></td>
+				 <td><button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><%= orderData[i].price %></button></td>
+				 <td><button id="fullfill"+orderData[i].id>FulFill Order</button></td>
+				<td><button id="cancel"+orderData[i].id>Cancel Order</button></td>
+			   </tr>
+			<% } %>
+			<tr id="row1">
+				<td><button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+  512
+</button></td>
 				<td>9:30pm</td> 
-				<td>bob</td>
-			<td><button>FulFill Order</button></td>
-			<td><button>Cancel Order</button></td>
+			<td><button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+  Bob
+</button></td>
+			
 			</tr>
 		</table>
 	</div>
@@ -33,7 +46,7 @@ p {
 
 ​<script>
 	$(function () {
-  	$('[data-toggle="popover"]').popover()
+  		$('[data-toggle="popover"]').popover()
 	})
 </script>
 

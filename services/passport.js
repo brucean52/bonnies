@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const keys = require('../config/keys');
 
 const User = mongoose.model('User');
-const Admin = mongoose.model('Admin');
+//const Admin = mongoose.model('Admin');
 
 passport.serializeUser((user, done)=>{
     done(null, user .id);
@@ -29,7 +29,7 @@ passport.use(new GoogleStrategy({
         callbackURL: '/auth/google/callback'
         }, 
         async (accessToken, refreshToken, profile, done)=> {
-            console.log('profile', profile);
+            //  console.log('profile', profile);
             const existingUser = await User.findOne({ googleId: profile.id })
                 if (existingUser){
                     //existing user exists with profile id
@@ -72,4 +72,4 @@ passport.use(new FacebookStrategy({
     })
 );
 
-passport.use('local',new LocalStrategy(Admin.authenticate()));
+passport.use('local',new LocalStrategy(User.authenticate()));
