@@ -9,6 +9,7 @@ const keys = require('./config/keys');
 const cookieSession = require('cookie-session');
 
 const User = require('./models/user');
+const Admin = require('./models/admin');
 require('./services/passport');
 
 // Init
@@ -39,7 +40,7 @@ db.on('error', (err) => {
 console.log("MongoDB Connection: " + err);
 });
 
-//passport.use(User.createStrategy());
+passport.use(Admin.createStrategy());
 app.use(passport.initialize());
 app.use(passport.session());
 // Routes
@@ -55,7 +56,11 @@ app.use(
         keys: [keys.cookieKey]
     })
 );
-
+//set user
+app.use(function(req, res, next) {
+    res.locals.currentUser = req.user;
+    next();
+  });
 
 
 // catch 404 and forward to error handler
