@@ -1,11 +1,12 @@
 ﻿<% include partials/header %>
 <% include partials/_header %>
+
 <style>
 p {
 	color: green;
 	font-family: verdana;
 	font-size: 300%
-	}
+}
 </style>
 
 <div class="container">
@@ -28,37 +29,35 @@ p {
 			</tr>
 
 			   <tr>
-
-				 <td><button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><%= orderData[i].id %></button></td>
-				 <td><%= orderData[i].title %></td>
-				 <td><button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><%= orderData[i].price %></button></td>
-				 <td><button id=<%= orderData[i].id %>>FulFill Order</button></td>
-				<td><button id=<%= orderData[i].id %>>Cancel Order</button></td>
-
-						<td><button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><%= orderData[i].id %></button></td>
-						<td><%= orderData[i].title %></td>
-						<td><button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><%= orderData[i].price %></button></td>
-						<td>Null</td>
-						<td><button id=<%= orderData[i].id%>>FulFill Order</button></td>
-						<td><button id=<%= orderData[i].id%>>Cancel Order</button></td>
-
+					<td><button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><%= orderData[i].id %></button></td>
+					<td><%= orderData[i].title %></td>
+					<td><button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus."><%= orderData[i].timeOrdered %></button></td>
+					<td><%= orderData[i].timeFulfilled %></td>
+					<td><form action="/fulfillItem" method="post"><input name="id" type="hidden" value=<%= orderData[i].id%>><button type="submit" class="fulfillOrderButton" value=<%= orderData[i].id%>>FulFill Order</button></form></td>
+					<td><form action="/cancelItem" method="post" key=<%= orderData[i].id%>><input name="id" type="hidden" value=<%= orderData[i].id%>><button type="submit" class="cancelOrderButton" value=<%= orderData[i].id%>>Cancel Order</button></form></td>
 			   </tr>
-			
-			
+
+			<% } %>
 		</table>
 		<% }} %>
 	</div>
 </div>
 
 ​<script>
+
 	$(function () {
   		$('[data-toggle="popover"]').popover()
 	})
 
+	// $('.fulfillOrderButton').click(function() {
+	// 	var idClicked = $(this).attr("id");
+		
+	// 	router.post('')
+	// })
 
-
-	// $(function () {
-	// 	$('')
+	// $('.cancelOrderButton').click(function() {
+	// 	var idClicked = $(this).attr("id");
+	// 	console.log('Cancel Button ID: ', idClicked);
 	// })
 
 </script>
