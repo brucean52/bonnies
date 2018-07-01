@@ -18,6 +18,12 @@ var app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+app.use(
+    cookieSession({
+        maxAge: 30*24*60*60*1000, //cookie lasts for 30 days
+        keys: [keys.cookieKey]
+    })
+);
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -45,22 +51,18 @@ app.use(passport.initialize());
 app.use(passport.session());
 // Routes
 var index = require('./routes/index');
+//set user
+
+app.use(function(req, res, next) {
+        res.locals.currentUser = req.user;
+        console.log(req.user);
+    next();
+});
 
 // Routing
 app.use('/', index);
 
 //Initialize cookie session and passport session
-app.use(
-    cookieSession({
-        maxAge: 30*24*60*60*1000, //cookie lasts for 30 days
-        keys: [keys.cookieKey]
-    })
-);
-//set user
-app.use(function(req, res, next) {
-    res.locals.currentUser = req.user;
-    next();
-  });
 
 
 // catch 404 and forward to error handler
