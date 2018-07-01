@@ -4,7 +4,7 @@ const express = require('express');
 const router = express.Router({
     mergeParams: true
 });
-
+const Admin = require('../models/admin');
 const passport = require('passport');
 //const User = require('../models/user');
 
@@ -25,10 +25,40 @@ router.get("/menu", (req, res) => {
   res.render("menu");
 });
 
+//admin routes
 router.post("/register", (req, res) => {
-  let user = new User();
-  console.log(req.body.first_name);
+  let admin = new Admin();
+  admin.first_name = req.body.first_name;
+  admin.first_name = req.body.last_name;
+  admin.email = req.body.email;
+
+  if(req.body.password === req.body.password2){
+    admin.password = req.body.password;
+  }
+
+  Admin.register(admin, req.body.password, function(err, user){
+    if(err){
+         console.log(err);
+         return;
+     } //user stragety
+     passport.authenticate("local")(req, res, function(){
+       //render admin view
+        res.render('index', {
+          first_name: admin.first_name,
+          last_name: admin.last_name,
+          email: admin.email
+        });
+    }); 
+ });
 });
+
+//admin login
+router.get("/login", (req, res) => {
+  res.render("login");
+});
+
+router.post('/login', passport.authenticate('local', { successRedirect: '/',
+failureRedirect: '/login'}));
 
 //authentication routes
 router.get('/auth/google',
