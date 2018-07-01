@@ -31,6 +31,10 @@ router.get("/cart", (req, res) => {
 });
 
 
+router.get("/confirmation", (req, res) => {
+    res.render("confirmation");
+});
+
 //admin routes
 
 router.post("/register", (req, res) => {
