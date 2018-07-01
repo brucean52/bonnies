@@ -27,10 +27,10 @@
   height: 100px;
   background-color: darkgreen;
 }
-/* 
+
 .container{
-  min-height: 85vh;
-} */
+  min-height: 80vh;
+}
 
 .nav_tab_custom{
     padding-top:15px;
