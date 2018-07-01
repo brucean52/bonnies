@@ -6,6 +6,10 @@
     padding-left:20%;
     color: gray;
 }
+.menu-item{
+    display:inline-block;
+}
+
 .topmenu2{
     color: gray;
 }
@@ -31,4 +35,4 @@
 .google-btn{
   height: 50px;
   width: 200px;
-} 
+}
