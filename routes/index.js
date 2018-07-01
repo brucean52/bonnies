@@ -18,7 +18,7 @@ router.get("/register", (req, res) => {
 });
 
 router.get("/orderlist", (req, res) => {
-    res.render("ManagerUI");
+    res.render("orderList");
 });
 
 router.get("/menu", (req, res) => {

@@ -1,0 +1,40 @@
+﻿<% include partials/header %>
+<style>
+p {
+	color: green;
+	font-family: verdana;
+	font-size: 300%
+	}
+</style>
+
+<div class="container">
+	<div>
+		<p class="text-center">Order List</p>
+	</div>
+	<div>
+		<table id="table" style="width:100%">
+			<tr>
+				<th>Order#</th>
+				<th>Time Ordered</th> 
+				<th>UserInfo</th>
+				<th>FulFill</th>
+				<th>Cancel</th>
+			</tr>
+			<tr>
+				<button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
+				<td>9:30pm</td> 
+				<td>bob</td>
+			<td><button>FulFill Order</button></td>
+			<td><button>Cancel Order</button></td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+​<script>
+	$(function () {
+  	$('[data-toggle="popover"]').popover()
+	})
+</script>
+
+<% include partials/footer %>
