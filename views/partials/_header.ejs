@@ -1,67 +1,160 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light topmenu">
-    <a class="navbar-brand" href="/">Vegan</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="/menu">Menu</a>
-              </li>
-      </ul>
+        <a class="navbar-brand" href="/">Vegan</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/menu">Menu</a>
+                  </li>
+          </ul>
+    
+         
+                <% if(!currentUser){ %>
+                    <ul class="nav navbar-nav pull-right top_right_menu ">
+                            <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                     Login
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+    
+                                            <div class="text-center">
+                                                    <a href="/auth/google">
+                                                    <img class="google-btn"src="https://ucollect.biz/wp-content/uploads/2015/03/Red-signin_Long_base_44dp.png" width="80%"/>
+                                                    </a>
+                                                </div>
+                    
+    
+                                    </div>
+                            </li>
+                      </ul>
+                  <% } else if(currentUser.admin){ %>
+                    <ul class="nav navbar-nav pull-right top_right_menu ">
+                            <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                     Admin
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                      <a class="dropdown-item" href="/orderList">Order List</a>
+                                      <a class="dropdown-item" href="/profile">Account Info</a>
+                                      <a class="dropdown-item" href="/logout">Logout</a>
+                                    </div>
+                            </li>
+                      </ul>
+                <% } else if(currentUser){ %> 
+                    <ul class="nav navbar-nav pull-right top_right_menu ">
+                            <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                     Account
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                      <a class="dropdown-item" href="/order_history">Order History</a>
+                                      <a class="dropdown-item" href="/profile">Account Info</a>
+                                      <a class="dropdown-item" href="/logout">Logout</a>
+                                    </div>
+                            </li>
+                      </ul>
+                <% } %>
+          <div class="topmenu_item">
+          <ul class="nav navbar-nav pull-right">
+                <li class="nav-item">
+                    <a class="nav-link" href="/cart" data-href="/delete.php?id=54" data-toggle="modal" data-target="#shopping-cart">Cart</a>
+                </li>
+          </ul>
+        </div>
+        </div>
+      </nav>
+      <!-- Modal-->
+    
+      <div class="modal fade" id="shopping-cart" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <center><h2>Shopping Cart</h2></center>
+                    </div>
+                    <div class="modal-body body_shopping_cart">
+                    <center><p>Review your order!</p></center>
 
-     
-            <% if(!currentUser){ %>
-                <ul class="nav navbar-nav pull-right top_right_menu ">
-                        <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                 Login
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <div class="container container_shopping_cart">
+                        <div class="row_shopping_cart">
+                            <div class="col-sm">
+                                <center><h4>Cart <span class="price" style="color:black"></h4></center>
+                            </div>
+                            <div class="col-sm">
+                                <center><b>Quantity</b></center>
+                            </div>
+                            <div class="col-sm">
+                                <center><b>Price</b></center>
+                            </div>
+                        </div>
+                        <div class="row_shopping_cart">
+                            <div class="col-sm">
+                                <center><p>Product 1</p></center>
+                            </div>
+                            <div class="col-sm">
+                                <center><input type="number" class="input_shopping_cart" value="1"></input></center>
+                            </div>
+                            <div class="col-sm">
+                                <center>$2</center>
+                            </div>
+                        </div>
+                        <div class="row_shopping_cart">
+                        <div class="col-sm">
+                        <center><p>Product 2</p></center>
+                    </div>
+                    <div class="col-sm">
+                        <center><input type="number" class="input_shopping_cart" value="1"></input></center>
+                    </div>
+                    <div class="col-sm">
+                        <center>$4</center>
+                    </div>
+                    </div>
 
-                                        <div class="text-center">
-                                                <a href="/auth/google">
-                                                <img class="google-btn"src="https://ucollect.biz/wp-content/uploads/2015/03/Red-signin_Long_base_44dp.png" width="80%"/>
-                                                </a>
-                                            </div>
-                
+                        <div class="row_shopping_cart">
+                    <div class="col-sm">
+                        <center><p>Product 3</p></center>
+                    </div>
+                    <div class="col-sm">
+                        <center><input type="number" class="input_shopping_cart" value="1"></input></center>
+                    </div>
+                    <div class="col-sm">
+                        <center>$8</center>
+                    </div>
+                        </div>
 
-                                </div>
-                        </li>
-                  </ul>
-              <% } else if(currentUser.admin){ %>
-                <ul class="nav navbar-nav pull-right top_right_menu ">
-                        <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                 Admin
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                  <a class="dropdown-item" href="/orderList">Order List</a>
-                                  <a class="dropdown-item" href="/profile">Account Info</a>
-                                  <a class="dropdown-item" href="/logout">Logout</a>
-                                </div>
-                        </li>
-                  </ul>
-            <% } else if(currentUser){ %> 
-                <ul class="nav navbar-nav pull-right top_right_menu ">
-                        <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                 Account
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                  <a class="dropdown-item" href="/order_history">Order History</a>
-                                  <a class="dropdown-item" href="/profile">Account Info</a>
-                                  <a class="dropdown-item" href="/logout">Logout</a>
-                                </div>
-                        </li>
-                  </ul>
-            <% } %>
-      <div class="topmenu_item">
-      <ul class="nav navbar-nav pull-right">
-            <li class="nav-item">
-                <a class="nav-link" href="/cart">Cart</a>
-            </li>
-      </ul>
-    </div>
-    </div>
-  </nav>
+                        <hr>
+                        <div class="row_shopping_cart">
+                    <div class="col-sm">
+                        <center><p>Total</p></center>
+                    </div>
+                    <div class="col-sm">
+                        <center></center>
+                    </div>
+                    <div class="col-sm">
+                        <center>$14</center>
+                    </div>
+                    </div>
+                    
+                    </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a class="btn btn-warning btn-ok" data-toggle="modal" data-target="#confirm-order">Confirm Order</a>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Continue Shopping</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="confirm-order" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            Confirm order?
+                        </div>
+                        <div class="modal-footer">
+                            <a class="btn btn-outline-success btn-ok" onclick="javascript:window.parent.location.href='http://localhost:3000/'">Yes</a>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Not yet</button>
+                        </div>
+                    </div>
+                </div>
+        </div>
