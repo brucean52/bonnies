@@ -1,17 +1,55 @@
 var express = require('express');
 const {MongoClient, ObjectID} = require('mongodb');
 
-var router = express.Router({
+const express = require('express');
+const router = express.Router({
     mergeParams: true
 });
 
+const passport = require('passport');
+//const User = require('../models/user');
+
 /* GET home page. */
-router.get("/", function(req, res) {
+router.get("/", (req, res) => {
   res.render("index");
 });
 
-router.get("/1", function(req, res) {
-  res.render("index1");
+router.get("/register", (req, res) => {
+  res.render("register");
+});
+
+router.post("/register", (req, res) => {
+  let user = new User();
+  console.log(req.body.first_name);
+});
+
+//authentication routes
+router.get('/auth/google',
+    passport.authenticate('google', {
+    scope: ['profile', 'email']
+})
+);
+
+router.get('/auth/google/callback',
+passport.authenticate('google', {
+        successRedirect : '/',
+        failureRedirect : '/'
+}));
+
+router.get('/auth/facebook',
+    passport.authenticate('facebook')
+);
+
+router.get('/auth/facebook/callback',
+  passport.authenticate('google'),
+  (req, res) => {
+    res.redirect('/');
+  }
+);
+
+router.get("/logout", (req, res) => {
+  req.logout();
+  res.redirect('/');
 });
 
 // GET all orders from the orders table 
