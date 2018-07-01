@@ -97,7 +97,26 @@ router.get("/logout", (req, res) => {
   res.redirect('/');
 });
 
-// GET all orders from the orders table 
+//routes for updating fulfilled status of order items
+router.post('/fulfillItem', (req, res) => {
+  console.log("FULFILLING ITEM: ", req.body.id);
+  MongoClient.connect('mongodb://eeps30:av862549@ds125001.mlab.com:25001/bonnies_vegan_cuisine', (err, db) => {
+    if(err) {
+        return console.log('Unable to connect to MongoDB server');
+    }
+    console.log('Connected to MongoDB server.');
+
+    db.collection('orders').findByIdAndUpdate(req.body.id, {fulfilled: true}, {new: true}).then((docs) => {
+        console.log("docs from event: ", docs)
+        res.render('orderList', {orderData: docs});
+    }, (err) => {
+        console.log('Unable to fetch order list items', err);
+    })
+    // db.close();
+  })
+})
+
+// get all orders from the orders table 
 router.get("/orderList", function(req, res) {
 
   MongoClient.connect('mongodb://eeps30:av862549@ds125001.mlab.com:25001/bonnies_vegan_cuisine', (err, db) => {
@@ -106,17 +125,19 @@ router.get("/orderList", function(req, res) {
     }
     console.log('Connected to MongoDB server.');
 
-    db.collection('menu_item').find().toArray().then((docs) => {
+    db.collection('orders').find().toArray().then((docs) => {
         // console.log('Menu Items: ');
         // console.log(JSON.stringify(docs, undefined, 2));
         // console.log('This is order data: ', docs);
         res.render('orderList', {orderData: docs});
     }, (err) => {
-        console.log('Unable to fetch menu items', err);
+        console.log('Unable to fetch order list items', err);
     })
     // db.close();
   })
 
 })
+
+router.post('./')
 
 module.exports = router;

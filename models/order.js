@@ -2,7 +2,7 @@ let mongoose = require('mongoose');
 
 let orderSchema = mongoose.Schema({
     id: Number,
-    itemsOrdered: Array,
+    itemsOrdered: {},
     timeOrdered: Number,
     timeFulfilled: null
 });
