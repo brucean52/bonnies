@@ -5,20 +5,22 @@
 <center><p>Review your order!</p></center>
 
 <div class="container">
+    <% if(cart){
+    for(var i=0; i<cart.length; i++){ %>
   <table class="table table-striped table-bordered" style="width:100%">
       <tr>
           <th>Product</th>
           <th>Quantity</th>
           <th>Price</th>
       </tr>
-      <% for(var i=0; i<cart.length; i++){ %>
+      
         <tr>
             <th><%= cart[i].name %></th>
             <th><input type="number" value=<%= cart[i].qty %>></th>
             <th><%= cart[i].price %></th>
         </tr>
-        <% } %> 
+        
   </table>
-  
+  <% }} %> 
 </div>
 <% include partials/footer %>
