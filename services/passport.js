@@ -50,10 +50,11 @@ passport.use(new FacebookStrategy({
     clientID: keys.facebookAppID,
     clientSecret: keys.facebookClientSecret,
     callbackURL: "/auth/facebook/callback",
-    proxy: true
+    proxy: true,
+    profileFields: ['id', 'displayName', 'email']
   },
   async (accessToken, refreshToken, profile, done)=> {
-
+    
         const existingUser = await User.findOne({ facebookId: profile.id });
 
         if (existingUser){
