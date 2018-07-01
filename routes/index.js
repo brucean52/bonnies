@@ -25,7 +25,14 @@ router.get("/menu", (req, res) => {
   res.render("menu");
 });
 
+
+router.get("/cart", (req, res) => {
+    res.render("cart");
+});
+
+
 //admin routes
+
 router.post("/register", (req, res) => {
   let admin = new Admin();
   admin.first_name = req.body.first_name;
