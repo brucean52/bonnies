@@ -11,7 +11,32 @@
       </ul>
 
       <ul class="nav navbar-nav pull-right top_right_menu ">
-            <% if(currentUser){ %>
+            <% if(!currentUser){ %>
+                <li class="nav-item dropdown">
+                        <a href="#" class="dropdown-toggle topmenu2" data-toggle="dropdown">Log In <span class="caret"></span></a>
+                        <ul class="dropdown-menu dropdown-lr animated slideInRight topmenu_item" role="menu">
+                            
+                                <div class="col-lg-12 mycustombtn">
+                                    <div class="text-center">
+                                        <a href="/auth/google">
+                                        <img class="google-btn"src="https://ucollect.biz/wp-content/uploads/2015/03/Red-signin_Long_base_44dp.png" width="80%"/>
+                                        </a>
+                                    </div>
+                                </div> 
+                               
+                        </ul>
+                    </li> 
+              </ul>
+              <% } else if(currentUser.admin){ %>
+                <li class="nav-item dropdown">
+                        <a href="#" class="dropdown-toggle topmenu2" data-toggle="dropdown">Admin <span class="caret"></span></a>
+                        <ul class="dropdown-menu dropdown-lr animated slideInRight topmenu_item" role="menu">
+                            <li>Order List</li>
+                            <li><a href="/logout">Logout</a></li>
+                        </ul>
+                    </li> 
+              </ul> 
+            <% } else if(currentUser){ %> 
                 <li class="nav-item dropdown">
                         <a href="#" class="dropdown-toggle topmenu2" data-toggle="dropdown">Account <span class="caret"></span></a>
                         <ul class="dropdown-menu dropdown-lr animated slideInRight topmenu_item" role="menu">
@@ -20,23 +45,7 @@
                             <li><a href="/logout">Logout</a></li>
                         </ul>
                     </li> 
-              </ul> 
-            <% } else{ %> 
-                <li class="nav-item dropdown">
-                <a href="#" class="dropdown-toggle topmenu2" data-toggle="dropdown">Log In <span class="caret"></span></a>
-                <ul class="dropdown-menu dropdown-lr animated slideInRight topmenu_item" role="menu">
-                    
-                        <div class="col-lg-12 mycustombtn">
-                            <div class="text-center">
-                                <a href="/auth/google">
-                                <img class="google-btn"src="https://ucollect.biz/wp-content/uploads/2015/03/Red-signin_Long_base_44dp.png" width="80%"/>
-                                </a>
-                            </div>
-                        </div> 
-                       
-                </ul>
-            </li> 
-      </ul>
+              </ul>  
             <% } %>
       <div class="topmenu_item">
       <ul class="nav navbar-nav pull-right">
