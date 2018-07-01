@@ -94,7 +94,7 @@
                                                 <td><%= orderData[i].itemsOrdered %></td>
                                                 <td><%= orderData[i].timeFulfilled %></td>
                                                 <td><%= orderData[i].title %></td>
-                                                <td><%= orderData[i].timeOrdered %></td>
+                                                <td><%= orderData[i].status %></td>
                                                 <td><form action="/cancelItem" method="post" key=<%= orderData[i].id%>><input name="id" type="hidden" value=<%= orderData[i].id%>><button type="submit" class="cancelOrderButton" value=<%= orderData[i].id%>>Cancel Order</button></form></td>
                                         </tr>
                                     <% } %>
