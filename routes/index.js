@@ -17,6 +17,14 @@ router.get("/register", (req, res) => {
   res.render("register");
 });
 
+router.get("/orderlist", (req, res) => {
+    res.render("ManagerUI");
+});
+
+router.get("/menu", (req, res) => {
+  res.render("menu");
+});
+
 router.post("/register", (req, res) => {
   let user = new User();
   console.log(req.body.first_name);
