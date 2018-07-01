@@ -5,4 +5,7 @@
 .topmenu{
     padding-top:100px;
 }
+.menu-item{
+    display:inline-block;
+}
 </style>  
