@@ -10,7 +10,7 @@
               </li>
       </ul>
 
-      <ul class="nav navbar-nav pull-right top_right_menu ">
+     
             <% if(!currentUser){ %>
                 <li class="nav-item dropdown">
                         <a href="#" class="dropdown-toggle topmenu2" data-toggle="dropdown">Log In <span class="caret"></span></a>
@@ -28,24 +28,31 @@
                     </li> 
               </ul>
               <% } else if(currentUser.admin){ %>
-                <li class="nav-item dropdown">
-                        <a href="#" class="dropdown-toggle topmenu2" data-toggle="dropdown">Admin <span class="caret"></span></a>
-                        <ul class="dropdown-menu dropdown-lr animated slideInRight topmenu_item" role="menu">
-                            <li>Order List</li>
-                            <li><a href="/logout">Logout</a></li>
-                        </ul>
-                    </li> 
-              </ul> 
+                <ul class="nav navbar-nav pull-right top_right_menu ">
+                        <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                 Admin
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                  <a class="dropdown-item" href="/orderList">Order List</a>
+                                  <a class="dropdown-item" href="/profile">Account Info</a>
+                                  <a class="dropdown-item" href="/logout">Logout</a>
+                                </div>
+                        </li>
+                  </ul>
             <% } else if(currentUser){ %> 
-                <li class="nav-item dropdown">
-                        <a href="#" class="dropdown-toggle topmenu2" data-toggle="dropdown">Account <span class="caret"></span></a>
-                        <ul class="dropdown-menu dropdown-lr animated slideInRight topmenu_item" role="menu">
-                            <li>Order History</li>
-                            <li>Settings</li>
-                            <li><a href="/logout">Logout</a></li>
-                        </ul>
-                    </li> 
-              </ul>  
+                <ul class="nav navbar-nav pull-right top_right_menu ">
+                        <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                 Account
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                  <a class="dropdown-item" href="/order_history">Order History</a>
+                                  <a class="dropdown-item" href="/profile">Account Info</a>
+                                  <a class="dropdown-item" href="/logout">Logout</a>
+                                </div>
+                        </li>
+                  </ul>
             <% } %>
       <div class="topmenu_item">
       <ul class="nav navbar-nav pull-right">
