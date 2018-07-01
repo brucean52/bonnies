@@ -81,3 +81,5 @@ fabric.properties
 
 ## Meat Specific
 local-resources
+
+config/keys.js

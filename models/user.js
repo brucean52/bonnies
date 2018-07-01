@@ -1,22 +1,10 @@
 let mongoose = require('mongoose');
 
 let userSchema = mongoose.Schema({
-    name: {
-        type: String
-    },
-    email: {
-        type: String
-    },
-    phone: {
-        type: String
-    },
-    account: {
-        type: String,
-        default: "customer"
-    },
-    passowrd: {
-        type: String
-    }
+    googleId: String,
+    facebookId: String,
+    name: String,
+    email: String
 });
 
-module.exports = mongoose.model('User', userSchema);
+let User = module.exports = mongoose.model('User', userSchema);
