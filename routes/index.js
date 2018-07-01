@@ -1,4 +1,3 @@
-var express = require('express');
 const {MongoClient, ObjectID} = require('mongodb');
 
 const express = require('express');
